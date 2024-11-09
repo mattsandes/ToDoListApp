@@ -1,0 +1,16 @@
+<h2>Mostrando os dados da JSON placholder</h2>
+
+<table>
+  <tr>
+    <th>User Id</th>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Completed</th>
+  </tr>
+  <tr *ngFor="let item of datas">
+    <td>{{item.userId}}</td>
+    <td>{{item.id}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.completed}}</td>
+  </tr>
+</table>

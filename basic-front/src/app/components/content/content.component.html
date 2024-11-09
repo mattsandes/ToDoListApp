@@ -1,0 +1,27 @@
+<h2>See the content</h2>
+
+<p>
+  Esses dados estão sendo retornados da minha api feita em Spring Boot com Java 21.
+</p>
+
+<table *ngIf="task" class="task-table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Task</th>
+      <th>Description</th>
+      <th>Data de Criação</th>
+      <th>Completo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ task.id }}</td>
+      <td>{{ task.taskName }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.createDate | date:'dd/MM/yyyy' }}</td>
+      <td>{{ task.done ? 'Yes' : 'No' }}</td>
+    </tr>
+  </tbody>
+</table>
+
