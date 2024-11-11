@@ -1,16 +1,35 @@
 package br.com.sandes.model;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
+@Table(name = "task_tb")
+@Entity
 public class Task {
 
+    @Id
+    @GeneratedValue
+    @Column(columnDefinition = "CHAR(36)")
     private UUID id;
+
+    @Column(nullable = false)
     private String taskName;
+
+    @Column(nullable = false)
     private String description;
+
+    @Column(nullable = false)
     private Date createDate;
+
+    @Column(nullable = false)
     private Boolean done;
+
+    public Task(){
+        this.id = UUID.randomUUID();
+    }
 
     public Task(String taskName, String description, Date createDate, Boolean done) {
         this.taskName = taskName;
