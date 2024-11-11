@@ -12,11 +12,15 @@ export class TaskServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getTask(): Observable<Task> {
-    return this.http.get<Task>(`${this.apiUrl}`);
+  getTask(): Observable<Task[]> {
+    return this.http.get<Task[]>(`${this.apiUrl}`);
   }
 
   findTask(task: string): Observable<Task> {
     return this.http.get<Task>(`${this.apiUrl}/${task}`);
+  }
+
+  createTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.apiUrl, task);
   }
 }
