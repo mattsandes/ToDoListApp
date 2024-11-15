@@ -1,16 +1,24 @@
 <h2>Mostrando os dados da JSON placholder</h2>
 
+<p>
+  Esse componente faz uma chamada para uma API de terceiro no qual os dados estão sendo exibidas aqui.
+</p>
+
 <table>
-  <tr>
-    <th>User Id</th>
-    <th>Id</th>
-    <th>Title</th>
-    <th>Completed</th>
-  </tr>
-  <tr *ngFor="let item of datas">
-    <td>{{item.userId}}</td>
-    <td>{{item.id}}</td>
-    <td>{{item.title}}</td>
-    <td>{{item.completed}}</td>
-  </tr>
+  <thead>
+    <tr>
+      <th>User Id</th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of datas">
+      <td>{{item.userId}}</td>
+      <td>{{item.id}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.completed}}</td>
+    </tr>
+  </tbody>
 </table>
