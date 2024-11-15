@@ -2,7 +2,6 @@ package br.com.sandes.controllers;
 
 import br.com.sandes.model.Task;
 import br.com.sandes.services.TaskService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,8 +19,13 @@ public class TaskController {
         return service.findAll();
     }
 
+    @GetMapping("/findByName")
+    public Task findByName(@RequestParam("taskName") String taskName){
+        return service.findByTaskName(taskName);
+    }
+
     @PostMapping
-    public Task create(@Valid @RequestBody Task task){
+    public Task create(@RequestBody Task task){
         return service.create(task);
     }
 }
