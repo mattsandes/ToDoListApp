@@ -7,16 +7,14 @@
 <table *ngIf="task && task.length" class="task-table">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Task</th>
-      <th>Description</th>
+      <th>Tarefa</th>
+      <th>Descrição</th>
       <th>Data de Criação</th>
       <th>Completo</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let item of task">
-      <td>{{ item.id }}</td>
       <td>{{ item.taskName }}</td>
       <td>{{ item.description }}</td>
       <td>{{ item.createDate | date:'dd/MM/yyyy' }}</td>
@@ -24,21 +22,3 @@
     </tr>
   </tbody>
 </table>
-
-<h2>Criando uma tarefa</h2>
-
-<form (ngSubmit)="createTask()">
-  <label for="taskName">Nome da tarefa:</label>
-  <input id="taskName" [(ngModel)]="newTask.taskName" name="taskName" required />
-
-  <label for="description">Descrição da tarefa:</label>
-  <input id="description" [(ngModel)]="newTask.description" name="description" required/>
-
-  <label for="createDate">Data de criação:</label>
-  <input id="date" [(ngModel)]="newTask.createDate" name="createDate" required/>
-
-  <label for="done">Concluido:</label>
-  <input type="checkbox" id="done" [(ngModel)]="newTask.done" name="done" required/>
-
-  <button type="submit">Criar tarefa</button>
-</form>
