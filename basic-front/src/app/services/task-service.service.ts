@@ -17,7 +17,7 @@ export class TaskServiceService {
   }
 
   findTask(task: string): Observable<Task> {
-    return this.http.get<Task>(`${this.apiUrl}/${task}`);
+    return this.http.get<Task>(`${this.apiUrl}/findByName?taskName=${task}`);
   }
 
   createTask(task: Task): Observable<Task> {
