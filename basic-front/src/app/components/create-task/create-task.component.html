@@ -1,0 +1,23 @@
+<h2>Criando uma tarefa</h2>
+
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vestibulum
+  consectetur mauris viverra faucibus. Curabitur et ex massa. Phasellus tortor
+  enim, accumsan sit amet egestas ac, aliquam ac dolor. Proin viverra lobortis
+  malesuada. Vivamus sit amet lacus ligula. Duis eu porttitor lectus, in ullamcorper
+  lectus. Vestibulum maximus orci diam, nec interdum elit finibus eu.
+  Pellentesque efficitur nisi nec laoreet iaculis. Suspendisse eu faucibus augue,
+  sed pulvinar lectus. Ut eu mattis felis, id pellentesque nisi. Morbi varius
+  tellus nec enim accumsan, ut finibus quam fermentum. Vivamus auctor laoreet
+  libero sit amet ultricies.
+</p>
+
+<form (ngSubmit)="createTask()" id="create-task-forms">
+  <label for="taskName">Nome da tarefa:</label>
+  <input id="taskName" [(ngModel)]="newTask.taskName" name="taskName" *ngIf=""/>
+
+  <label for="description">Descrição da tarefa:</label>
+  <input id="description" [(ngModel)]="newTask.description" name="description" required/>
+
+  <button type="submit">Criar tarefa</button>
+</form>
