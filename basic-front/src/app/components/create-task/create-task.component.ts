@@ -27,11 +27,10 @@ export class CreateTaskComponent implements OnInit {
   constructor(private service: TaskServiceService){}
 
   ngOnInit(): void {
-      this.createTask();
   }
 
   createTask(): void {
-    if(!this.newTask){
+    if(!this.newTask.taskName || !this.newTask.description){
       alert('Não é possivel criar uma tarefa com os campos vazios!');
 
       return;
