@@ -39,7 +39,7 @@ export class CreateTaskComponent implements OnInit {
 
     this.service.createTask(this.newTask).subscribe({
       next: (response: Task) => {
-        console.log('Tarefa criada com sucesso: ', response);
+        alert('Tarefa criada com sucesso!');
 
         this.newTask = {
           id: '',
