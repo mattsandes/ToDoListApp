@@ -14,7 +14,7 @@
 
 <form (ngSubmit)="createTask()" id="create-task-forms">
   <label for="taskName">Nome da tarefa:</label>
-  <input id="taskName" [(ngModel)]="newTask.taskName" name="taskName" *ngIf=""/>
+  <input id="taskName" [(ngModel)]="newTask.taskName" name="taskName" />
 
   <label for="description">Descrição da tarefa:</label>
   <input id="description" [(ngModel)]="newTask.description" name="description" required/>
