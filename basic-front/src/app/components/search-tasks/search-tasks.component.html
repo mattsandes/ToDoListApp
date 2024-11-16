@@ -4,9 +4,17 @@
 
 <form (ngSubmit)="findTask()" id="search-task-forms">
   <label for="taskName">Pesquise sua tarefa aqui:</label>
-  <input id="taskName" [(ngModel)]="task.taskName" name="taskName" required= />
+  <input
+    id="taskName"
+    placeholder="Informe aqui a sua pesquisa"
+    [(ngModel)]="taskQuery"
+    name="taskName" required />
   <button type="submit">Buscar</button>
 </form>
+
+<div *ngIf="errorMessage">
+  <p>{{errorMessage}}</p>
+</div>
 
 <table *ngIf="task">
   <thead>
