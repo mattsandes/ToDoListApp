@@ -6,9 +6,10 @@ import { CreateTaskComponent } from './components/create-task/create-task.compon
 import { SearchTasksComponent } from './components/search-tasks/search-tasks.component';
 
 export const routes: Routes = [
-  {path: 'tasks', component: ContentComponent},
-  {path: 'placeholder', component: PlaceholdersComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'createTask', component: CreateTaskComponent},
-  {path: 'searchTasks', component: SearchTasksComponent}
+  {path: 'tasks', component: ContentComponent, title: 'Listando Tasks'},
+  {path: 'placeholder', component: PlaceholdersComponent, title: 'Placeholder Items'},
+  {path: '', component: AboutComponent, title: 'About Us'},
+  {path: 'createTask', component: CreateTaskComponent, title: 'Create Tasks'},
+  {path: 'searchTasks', component: SearchTasksComponent, title: 'Search Tasks'},
+  {path: '**', redirectTo: ''}
 ];
