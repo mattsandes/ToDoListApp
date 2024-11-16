@@ -1,0 +1,28 @@
+<h2>Procurando task</h2>
+
+<p>Aqui voce consegue pesquisar pelas tasks que estão na agina de conteudo.</p>
+
+<form (ngSubmit)="findTask()" id="search-task-forms">
+  <label for="taskName">Pesquise sua tarefa aqui:</label>
+  <input id="taskName" [(ngModel)]="task.taskName" name="taskName" required= />
+  <button type="submit">Buscar</button>
+</form>
+
+<table *ngIf="task != null">
+  <thead>
+    <tr>
+      <th>Tarefa</th>
+      <th>Descrição</th>
+      <th>Data de Criação</th>
+      <th>Completo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ task.taskName }}</td>
+      <td>{{ task.description }}</td>
+      <td>{{ task.createDate | date:'dd/MM/yyyy' }}</td>
+      <td>{{ task.done ? 'Yes' : 'No' }}</td>
+    </tr>
+  </tbody>
+</table>
