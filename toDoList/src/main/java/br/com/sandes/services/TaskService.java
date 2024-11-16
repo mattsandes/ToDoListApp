@@ -31,6 +31,15 @@ public class TaskService {
     }
 
     public Task findByTaskName(String taskName){
-        return repository.findByTaskName(taskName);
+        if(taskName.isEmpty()) {
+            throw new IllegalArgumentException("Informe algo para realizar a pesquisa!");
+        }
+        var task = repository.findByTaskName(taskName);
+
+        if(task == null) {
+            throw new RuntimeException("Tarefa não encontrada");
+        }
+
+        return task;
     }
 }
