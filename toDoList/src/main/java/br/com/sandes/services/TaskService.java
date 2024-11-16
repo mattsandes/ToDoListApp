@@ -20,8 +20,11 @@ public class TaskService {
 
     public Task create(Task task){
 
-        if(task == null){
-            throw new IllegalArgumentException("Não é possivel persistir objetos nullos");
+        if(task.getTaskName() == null &&
+                task.getTaskName().isEmpty() ||
+                task.getDescription() == null &&
+                task.getDescription().isBlank()){
+            throw new IllegalArgumentException("Não é possivel criar tasks com campos vazios");
         }
 
         return repository.save(task);
