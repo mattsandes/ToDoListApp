@@ -42,4 +42,22 @@ public class TaskService {
 
         return task;
     }
+
+    public Task doneTask(String task){
+        logger.info("Tarefa concluida!");
+
+        if(task == null) {
+            throw new IllegalArgumentException("Informe o nome de uma tarefa!");
+        }
+
+        Task foundTask = repository.findByTaskName(task);
+
+        if(foundTask == null){
+            throw new IllegalArgumentException("Tarefa não encontrada!");
+        }
+
+        foundTask.setDone(true);
+
+        return repository.save(foundTask);
+    }
 }
