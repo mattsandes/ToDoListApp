@@ -7,18 +7,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @Service
 public class TaskService {
 
     @Autowired
     private TaskRepository repository;
+    private Logger logger = Logger.getLogger(Task.class.getName());
 
     public List<Task> findAll(){
+        logger.info("Tasks encontradas!");
+
         return repository.findAll();
     }
 
     public Task create(Task task){
+
+        logger.info("Tarefa criada!");
 
         if(task.getTaskName() == null &&
                 task.getTaskName().isEmpty() ||
@@ -31,6 +37,8 @@ public class TaskService {
     }
 
     public Task findByTaskName(String taskName){
+        logger.info("Task encontrada!");
+
         if(taskName.isEmpty()) {
             throw new IllegalArgumentException("Informe algo para realizar a pesquisa!");
         }
