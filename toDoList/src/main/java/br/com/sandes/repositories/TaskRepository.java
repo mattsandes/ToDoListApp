@@ -18,4 +18,7 @@ public interface TaskRepository extends JpaRepository<Task, UUID> {
     @Override
     @Query("SELECT task FROM Task task ORDER BY task.createDate ASC")
     public List<Task> findAll();
+
+    @Query("UPDATE Task task SET task.done = true WHERE task.taskName = :task")
+    public Task doneTask(@Param("task") String task);
 }
