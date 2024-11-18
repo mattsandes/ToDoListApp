@@ -28,4 +28,9 @@ public class TaskController {
     public Task createTask(@RequestBody Task task){
         return service.create(task);
     }
+
+    @PutMapping("/{taskName}")
+    public Task doneTask(@PathVariable("taskName") String taskName){
+        return service.doneTask(taskName);
+    }
 }
