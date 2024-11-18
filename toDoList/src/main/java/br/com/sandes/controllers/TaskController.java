@@ -15,7 +15,7 @@ public class TaskController {
     private TaskService service;
 
     @GetMapping
-    public List<Task> findAll(){
+    public List<Task> findAllTasks(){
         return service.findAll();
     }
 
