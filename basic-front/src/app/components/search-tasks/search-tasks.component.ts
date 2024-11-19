@@ -41,7 +41,6 @@ export class SearchTasksComponent implements OnInit {
 
         } else {
           alert("Não foi possivel encontrar essa tarefa!");
-          this.errorMessage = "Achei nada, oh XP"
           this.task = null;
         }
       },
