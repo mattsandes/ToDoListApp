@@ -1,3 +1,5 @@
 table, th, td {
   border: 1px red solid;
+  padding: 3px;
+  align-items: center;
 }
