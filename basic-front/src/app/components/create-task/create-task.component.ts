@@ -36,7 +36,6 @@ export class CreateTaskComponent implements OnInit {
       return;
     }
 
-
     this.service.createTask(this.newTask).subscribe({
       next: (response: Task) => {
         alert('Tarefa criada com sucesso!');
