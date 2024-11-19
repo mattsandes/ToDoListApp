@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Task } from '../../models/task.model';
 import { TaskServiceService } from '../../services/task-service.service';
-import { setAlternateWeakRefImpl } from '@angular/core/primitives/signals';
 
 @Component({
   selector: 'app-search-tasks',
@@ -28,7 +27,6 @@ export class SearchTasksComponent implements OnInit {
 
   findTask(): void {
     if(!this.taskQuery.trim()){
-      this.errorMessage = "Achei nada, oh XP"
       alert('Informe algo para fazer a pesquisa!');
 
       return;
@@ -45,7 +43,7 @@ export class SearchTasksComponent implements OnInit {
         }
       },
       error: (error) => {
-        alert('Não foi possivel encontrar a tarefa com esse nome');
+        alert('Não foi possivel encontrar a tarefa com esse nome!');
         this.task = null;
       }
     });
