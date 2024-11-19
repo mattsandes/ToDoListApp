@@ -23,4 +23,8 @@ export class TaskServiceService {
   createTask(task: Task): Observable<Task> {
     return this.http.post<Task>(this.apiUrl, task);
   }
+
+  doneTask(taskName: string): Observable<Task> {
+    return this.http.put<Task>(`${this.apiUrl}/${taskName}`, {});
+  }
 }
