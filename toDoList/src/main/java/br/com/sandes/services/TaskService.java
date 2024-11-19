@@ -1,5 +1,8 @@
 package br.com.sandes.services;
 
+import br.com.sandes.exceptions.EmptyFieldException;
+import br.com.sandes.exceptions.EmptySearchException;
+import br.com.sandes.exceptions.TaskNotFoundException;
 import br.com.sandes.model.Task;
 import br.com.sandes.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +43,13 @@ public class TaskService {
         logger.info("Task encontrada!");
 
         if(taskName.isEmpty()) {
-            throw new IllegalArgumentException("Informe algo para realizar a pesquisa!");
+            throw new EmptySearchException("Informe algo para realizar a pesquisa!");
         }
+
         var task = repository.findByTaskName(taskName);
 
         if(task == null) {
-            throw new RuntimeException("Tarefa não encontrada");
+            throw new TaskNotFoundException("Tarefa não encontrada");
         }
 
         return task;
@@ -55,13 +59,13 @@ public class TaskService {
         logger.info("Tarefa concluida!");
 
         if(task == null) {
-            throw new IllegalArgumentException("Informe o nome de uma tarefa!");
+            throw new EmptyFieldException("Informe o nome de uma tarefa!");
         }
 
         Task foundTask = repository.findByTaskName(task);
 
         if(foundTask == null){
-            throw new IllegalArgumentException("Tarefa não encontrada!");
+            throw new TaskNotFoundException("Tarefa não encontrada!");
         }
 
         foundTask.setDone(true);
