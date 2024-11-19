@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../../models/task.model';
 import { TaskServiceService } from '../../services/task-service.service';
 import { CommonModule, NgFor } from '@angular/common';
-import { FormsModule, FormSubmittedEvent } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-content',
