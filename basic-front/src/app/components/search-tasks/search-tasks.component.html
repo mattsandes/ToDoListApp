@@ -12,25 +12,33 @@
   <button type="submit">Buscar</button>
 </form>
 
-<div *ngIf="errorMessage">
-  <p>{{errorMessage}}</p>
-</div>
+<table mat-table [dataSource]="tasks" class="mat-elevation-z8" *ngIf="tasks.length > 0">
+  <!-- Task Name Column -->
+  <ng-container matColumnDef="taskName">
+    <th mat-header-cell *matHeaderCellDef>TaskName</th>
+    <td mat-cell *matCellDef="let dataItem">{{ dataItem.taskName }}</td>
+  </ng-container>
 
-<table *ngIf="task">
-  <thead>
-    <tr>
-      <th>Tarefa</th>
-      <th>Descrição</th>
-      <th>Data de Criação</th>
-      <th>Completo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{ task.taskName }}</td>
-      <td>{{ task.description }}</td>
-      <td>{{ task.createDate | date:'dd/MM/yyyy' }}</td>
-      <td>{{ task.done ? 'Yes' : 'No' }}</td>
-    </tr>
-  </tbody>
+  <!-- Description Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Description</th>
+    <td mat-cell *matCellDef="let dataItem">{{ dataItem.description }}</td>
+  </ng-container>
+
+  <!-- Create Date Column -->
+  <ng-container matColumnDef="createDate">
+    <th mat-header-cell *matHeaderCellDef>CreateDate</th>
+    <td mat-cell *matCellDef="let dataItem">{{ dataItem.createDate | date }}</td>
+  </ng-container>
+
+  <!-- Done Column -->
+  <ng-container matColumnDef="done">
+    <th mat-header-cell *matHeaderCellDef>Concluído</th>
+    <td mat-cell *matCellDef="let dataItem">{{ dataItem.done ? 'Sim' : 'Não' }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="taskHeader"></tr>
+  <tr mat-row *matRowDef="let row; columns: taskHeader;"></tr>
 </table>
+
+<p *ngIf="tasks.length === 0 && taskQuery.trim()">Nenhuma tarefa encontrada.</p>

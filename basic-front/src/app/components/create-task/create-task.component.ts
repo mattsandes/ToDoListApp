@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Task } from '../../models/task.model';
 import { TaskServiceService } from '../../services/task-service.service';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule, NgModel } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-task',
@@ -25,20 +26,21 @@ export class CreateTaskComponent implements OnInit {
   }
 
   constructor(private service: TaskServiceService){}
+  private _snackBar = inject(MatSnackBar);
 
   ngOnInit(): void {
   }
 
   createTask(): void {
     if(!this.newTask.taskName || !this.newTask.description){
-      alert('Não é possivel criar uma tarefa com os campos vazios!');
+      this._snackBar.open('Não é possivel criar uma tarefa com os campos vazios!');
 
       return;
     }
 
     this.service.createTask(this.newTask).subscribe({
       next: (response: Task) => {
-        alert('Tarefa criada com sucesso!');
+        this._snackBar.open('Tarefa criada com sucesso!', 'Ok', {duration: 3000});
 
         this.newTask = {
           id: '',
@@ -49,7 +51,7 @@ export class CreateTaskComponent implements OnInit {
         };
       },
       error: (error) => {
-        console.error("Error ao criar tarefas!", error);
+        this._snackBar.open("Error ao criar tarefas!", error);
       }
     });
   }

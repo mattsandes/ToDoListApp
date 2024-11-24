@@ -1,12 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { PlaceholderServiceService } from '../../services/placeholder-service.service';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-placeholders',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    MatTableModule
   ],
   templateUrl: './placeholders.component.html',
   styleUrl: './placeholders.component.css'
@@ -14,6 +16,7 @@ import { PlaceholderServiceService } from '../../services/placeholder-service.se
 export class PlaceholdersComponent implements OnInit{
 
   datas?: any;
+  public toDoHeader: string[] = ['userId', 'id', 'title', 'completed'];
 
   constructor(private service: PlaceholderServiceService){}
 
