@@ -12,7 +12,30 @@
   libero sit amet ultricies.
 </p>
 
-<form (ngSubmit)="createTask()" id="create-task-forms">
+<form (ngSubmit)="createTask()">
+  <mat-form-field>
+    <mat-label>Insira o nome da sua task</mat-label>
+    <input
+    matInput
+    placeholder="Nome da task"
+    [(ngModel)]="newTask.taskName"
+    type="text"
+    name="taskName">
+  </mat-form-field><br>
+
+  <mat-form-field>
+    <mat-label>Adicione uma descrição</mat-label>
+    <input
+    matInput
+    placeholder="Descrição da task"
+    [(ngModel)]="newTask.description"
+    type="text"
+    name="description">
+  </mat-form-field><br>
+  <button mat-raised-button type="submit">Criar Task</button>
+</form>
+
+<!-- <form (ngSubmit)="createTask()" id="create-task-forms">
   <label for="taskName">Nome da tarefa:</label>
   <input id="taskName" [(ngModel)]="newTask.taskName" name="taskName" />
 
@@ -20,4 +43,4 @@
   <input id="description" [(ngModel)]="newTask.description" name="description" required/>
 
   <button type="submit">Criar tarefa</button>
-</form>
+</form> -->
