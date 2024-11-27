@@ -1,38 +1,36 @@
 <div id="header">
-  <h1>Welcome to my app</h1>
+  <h3>Welcome to my app</h3>
 
-  <span id="menu">
-    <a routerLink="tasks"
-    routerLinkActive="active"
-    ariaCurrentWhenActive="page"
-    >
-    |Content |</a>
+  <button mat-button [matMenuTriggerFor]="menu" id="header-menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button
+      mat-menu-item
+      routerLink="/tasks">Content
+    </button>
 
-    <a routerLink="placeholder"
-    routerLinkActive="active"
-    ariaCurrentWhenActive="page"
-    >
-    Placeholder |</a>
+    <button
+    mat-menu-item
+    routerLink="/placeholder">Placeholder
+    </button>
 
-    <a routerLink="about"
-    routerLinkActive="active"
-    ariaCurrentWhenActive="page"
-    >
-    About</a>
+    <button
+    mat-menu-item
+    routerLink="/about">About
+    </button>
 
-    <a routerLink="createTask"
-    routerLinkActive="active"
-    ariaCurrentWhenActive="page"
-    >| Create Tasks |</a>
+    <button
+    mat-menu-item
+    routerLink="/createTask">Create Task
+    </button>
 
-    <a routerLink="searchTasks"
-    routerLinkActive="active"
-    ariaCurrentWhenActive="page"
-    > Search tasks|</a>
+    <button
+    mat-menu-item
+    routerLink="/searchTasks">Search Task
+    </button>
 
-    <a routerLink="doneTasks"
-    routerLinkActive="active"
-    ariaCurrentWhenActive="page"
-    > Done Tasks|</a>
-  </span>
+    <button
+    mat-menu-item
+    routerLink="/doneTasks">Done Tasks
+    </button>
+  </mat-menu>
 </div>
