@@ -2,15 +2,17 @@
 
 <p>Aqui voce consegue pesquisar pelas tasks que estão na agina de conteudo.</p>
 
-<form (ngSubmit)="findTask()" id="search-task-forms">
-  <label for="taskName">Pesquise sua tarefa aqui:</label>
-  <input
-    id="taskName"
-    placeholder="Informe aqui a sua pesquisa"
+<form (ngSubmit)="findTask()">
+  <mat-form-field>
+    <mat-label>Busque sua Task</mat-label>
+    <input
+    matInput
+    placeholder="Insira sua busca aqui"
     [(ngModel)]="taskQuery"
-    name="taskName" required />
-  <button type="submit">Buscar</button>
-</form>
+    type="text"
+    name="taskQuery">
+  </mat-form-field>
+</form> <button mat-raised-button type="submit">Buscar</button>
 
 <table mat-table [dataSource]="tasks" class="mat-elevation-z8" *ngIf="tasks.length > 0">
   <!-- Task Name Column -->

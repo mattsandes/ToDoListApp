@@ -5,14 +5,20 @@ import { Task } from '../../models/task.model';
 import { TaskServiceService } from '../../services/task-service.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-search-tasks',
   standalone: true,
   imports: [
     CommonModule,
+    MatTableModule,
+    MatInputModule,
     FormsModule,
-    MatTableModule
+    MatFormFieldModule,
+    MatButtonModule
   ],
   templateUrl: './search-tasks.component.html',
   styleUrl: './search-tasks.component.css'
@@ -20,7 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 export class SearchTasksComponent implements OnInit {
 
   private _snackBar = inject(MatSnackBar);
-  public taskQuery: any;
+  public taskQuery: string = '';
   public tasks: Task[] = []; // Array para armazenar as tasks encontradas
   public errorMessage: string = '';
   public taskHeader: string[] = ['taskName', 'description', 'createDate', 'done'];
