@@ -2,7 +2,14 @@
 
 <p>Esse componenete vai ser destinado a finalizar as tasks que forem passadas no input.</p>
 
-<div>
-  <input #taskInput type="text" placeholder="Digite o nome da sua task" />
-  <button (click)="doneTask(taskInput.value)">Feito</button>
-</div>
+<form (ngSubmit)="doneTask()">
+  <mat-form-field>
+    <mat-label>Finalize sua task</mat-label>
+    <input
+    matInput
+    placeholder="Insira sua busca aqui"
+    [(ngModel)]="task"
+    type="text"
+    name="taskQuery">
+  </mat-form-field>
+</form> <button mat-raised-button type="submit">Buscar</button>
