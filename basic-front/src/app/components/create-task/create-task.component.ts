@@ -39,7 +39,7 @@ export class CreateTaskComponent implements OnInit {
 
   createTask(): void {
     if(!this.newTask.taskName || !this.newTask.description){
-      this._snackBar.open('Não é possivel criar uma tarefa com os campos vazios!');
+      this._snackBar.open('Não é possivel criar uma tarefa com os campos vazios!', 'OK', {duration: 3000});
 
       return;
     }
@@ -57,7 +57,9 @@ export class CreateTaskComponent implements OnInit {
         };
       },
       error: (error) => {
-        this._snackBar.open("Error ao criar tarefas!", error);
+        console.log(error);
+
+        this._snackBar.open("Error ao criar tarefas!", 'Ok', {duration: 3000});
       }
     });
   }
