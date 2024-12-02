@@ -5,6 +5,15 @@
   Java 21.
 </p>
 
+<p>
+  Quisque sed nisl ex. Donec mi ante, blandit quis ipsum sit amet, eleifend placerat dui. Donec nisi nunc, ultrices sit amet eleifend tempor, blandit
+  nec eros. Morbi mollis auctor orci consequat faucibus. Suspendisse ac ligula at purus interdum iaculis. Suspendisse vulputate suscipit ante, eu
+  mollis magna dignissim et. Aliquam viverra ornare mattis. Nullam lobortis purus mi, id tempus diam convallis ac. Integer luctus est iaculis quam
+  aliquam suscipit. Integer sit amet dui vitae est iaculis tempor. Proin posuere, augue quis suscipit imperdiet, enim turpis sollicitudin nisl, vitae
+  volutpat augue quam in magna. Sed ornare lectus id neque feugiat aliquet. Nullam vel nisl nec diam fringilla placerat. Phasellus ornare vulputate
+  mauris tincidunt lacinia.
+</p>
+
 <table mat-table [dataSource]="task" class="mat-elevation-z8 demo-table">
   <!-- Nome da Tarefa -->
   <ng-container matColumnDef="demo-taskName">
@@ -33,22 +42,4 @@
   <tr mat-row *matRowDef="let row; columns: taskHeader;"></tr>
 </table>
 
-
-<!-- <table *ngIf="task && task.length" class="task-table">
-  <thead>
-    <tr>
-      <th>Tarefa</th>
-      <th>Descrição</th>
-      <th>Data de Criação</th>
-      <th>Completo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of task">
-      <td>{{ item.taskName }}</td>
-      <td>{{ item.description }}</td>
-      <td>{{ item.createDate | date:'dd/MM/yyyy' }}</td>
-      <td>{{ item.done ? 'Yes' : 'No' }}</td>
-    </tr>
-  </tbody>
-</table> -->
+<mat-progress-bar mode="indeterminate" *ngIf="task == null"></mat-progress-bar>
