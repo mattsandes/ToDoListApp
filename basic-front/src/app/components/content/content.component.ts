@@ -4,6 +4,7 @@ import { TaskServiceService } from '../../services/task-service.service';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table'
+import { MatProgressBarModule } from '@angular/material/progress-bar'
 
 @Component({
   selector: 'app-content',
@@ -11,7 +12,8 @@ import { MatTableModule } from '@angular/material/table'
   imports: [
     CommonModule,
     FormsModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressBarModule
   ],
   templateUrl: './content.component.html',
   styleUrl: './content.component.css'
@@ -32,6 +34,6 @@ export class ContentComponent implements OnInit {
     this.taskService.getTask().subscribe((task: Task[]) => {
       this.task = task;  // Aqui você define a variável task com os dados recebidos
       return (this.task);
-    });
-  }
+    },
+  )};
 }
