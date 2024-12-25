@@ -22,5 +22,5 @@ public interface TaskRepository extends JpaRepository<Task, UUID> {
     @Modifying
     @Transactional
     @Query("UPDATE Task task SET task.done = true WHERE task.taskName = :task")
-    public Task doneTask(@Param("task") String task);
+    public void doneTask(@Param("task") String task);
 }
