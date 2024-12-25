@@ -1,15 +1,14 @@
 package br.com.sandes.services;
 
-import br.com.sandes.exceptions.EmptyFieldException;
 import br.com.sandes.exceptions.EmptySearchException;
 import br.com.sandes.exceptions.TaskNotFoundException;
 import br.com.sandes.model.Task;
 import br.com.sandes.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 @Service
@@ -17,7 +16,7 @@ public class TaskService {
 
     @Autowired
     private TaskRepository repository;
-    private Logger logger = Logger.getLogger(Task.class.getName());
+    private final Logger logger = Logger.getLogger(Task.class.getName());
 
     public List<Task> findAll(){
         logger.info("Tasks encontradas!");
@@ -35,6 +34,8 @@ public class TaskService {
                 task.getDescription().isBlank()){
             throw new IllegalArgumentException("Não é possivel criar tasks com campos vazios");
         }
+
+        task.setId(UUID.randomUUID());
 
         return repository.save(task);
     }
@@ -56,20 +57,14 @@ public class TaskService {
     }
 
     public Task doneTask(String task){
-        logger.info("Tarefa concluida!");
+        logger.info("Task finalizad!");
 
         if(task == null) {
-            throw new EmptyFieldException("Informe o nome de uma tarefa!");
-        }
-
-        Task foundTask = repository.findByTaskName(task);
-
-        if(foundTask == null){
             throw new TaskNotFoundException("Tarefa não encontrada!");
         }
 
-        foundTask.setDone(true);
+        repository.doneTask(task);
 
-        return repository.save(foundTask);
+        return repository.findByTaskName(task);
     }
 }
