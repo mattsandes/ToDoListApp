@@ -16,7 +16,10 @@
     type="text"
     name="taskQuery">
   </mat-form-field>
-</form> <button mat-raised-button type="submit">Buscar</button>
+  <br>
+
+  <button mat-raised-button type="submit">Buscar</button>
+</form>
 
 <table mat-table [dataSource]="tasks" class="mat-elevation-z8" *ngIf="tasks.length > 0">
   <!-- Task Name Column -->
