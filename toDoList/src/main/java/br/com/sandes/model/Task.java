@@ -12,7 +12,6 @@ public class Task {
 
     @Id
     @GeneratedValue
-    @Column(columnDefinition = "CHAR(36)")
     private UUID id;
 
     @Column(nullable = false)
