@@ -12,7 +12,7 @@ import java.util.UUID;
 @Repository
 public interface TaskRepository extends JpaRepository<Task, UUID> {
 
-    @Query("SELECT task FROM Task task WHERE task.taskName LIKE '% %' AND task.taskName LIKE CONCAT('%', :taskName, '%')")
+    @Query("SELECT task FROM Task task WHERE task.taskName = :taskName")
     public Task findByTaskName(@Param("taskName") String taskName);
 
     @Override
