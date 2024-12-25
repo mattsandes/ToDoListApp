@@ -4,7 +4,6 @@ import { PlaceholdersComponent } from './components/placeholders/placeholders.co
 import { AboutComponent } from './components/about/about.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { SearchTasksComponent } from './components/search-tasks/search-tasks.component';
-import { DoneTaskComponent } from './components/done-task/done-task.component';
 
 export const routes: Routes = [
   {path: 'tasks', component: ContentComponent, title: 'Listando Tasks'},
@@ -12,6 +11,5 @@ export const routes: Routes = [
   {path: '', component: AboutComponent, title: 'About Us'},
   {path: 'createTask', component: CreateTaskComponent, title: 'Create Tasks'},
   {path: 'searchTasks', component: SearchTasksComponent, title: 'Search Tasks'},
-  {path: 'doneTasks', component: DoneTaskComponent, title: 'Done Tasks'},
   {path: '**', redirectTo: ''}
 ];
